@@ -35,11 +35,9 @@ def play_again():
 
 
 def play_game():
-
   choose_game_type()
-
   while grid.has_empty_cells():
-    cell = int(input("Input cell please: "))
+    cell = int(input("Input cell id please (top left is 1, bottom right is 9): ")) - 1
     if  cell < 0 or cell > 8:
       print("Invalid option. try again.")
       continue
@@ -51,8 +49,6 @@ def play_game():
       grid.switch_player()
     except Exception as message:
       print(message)
-  
-  
   game_over()
   play_again()
 

@@ -4,19 +4,11 @@ import numpy as np
 class Grid:
 
   NUMBER_OF_CELLS = 9
-
   EMPTY = "     "
-
   SYMBOLS = {
     0 : "  O  ", 
     1 : "  X  "
   }
-
-  EMPTY_GRID = [
-        [EMPTY, EMPTY, EMPTY],
-        [EMPTY, EMPTY, EMPTY],
-        [EMPTY, EMPTY, EMPTY]
-      ]
 
 
   def __init__(self) -> None:
@@ -24,7 +16,7 @@ class Grid:
 
 
   def reset(self) -> None:
-    self.grid = self.EMPTY_GRID
+    self.grid = np.full((3,3), self.EMPTY)
     self.empty_cells = self.NUMBER_OF_CELLS
     self.symbol_index = 0
     self.winner: str
@@ -44,10 +36,8 @@ class Grid:
   def fill_cell(self, row: int, column: int) -> None:
     if self.grid[row][column] != self.EMPTY:
       raise Exception("Cell already filled. try again.")
-
     self.grid[row][column] = self.SYMBOLS[self.symbol_index]
     self.empty_cells -= 1
-    
 
   
   def switch_player(self) -> None:
