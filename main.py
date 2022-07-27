@@ -35,9 +35,11 @@ def play_again():
 
 
 def play_game():
-  choose_game_type()
+  # TODO: Add AI 
+  # choose_game_type()
   while grid.has_empty_cells():
-    cell = int(input("Input cell id please (top left is 1, bottom right is 9): ")) - 1
+    player = grid.get_player()
+    cell = int(input(f"Player \"{player}\": Input cell id please (top left is 1, bottom right is 9): ")) - 1
     if  cell < 0 or cell > 8:
       print("Invalid option. try again.")
       continue

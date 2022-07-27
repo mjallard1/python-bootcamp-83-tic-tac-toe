@@ -44,6 +44,9 @@ class Grid:
     self.symbol_index = (self.symbol_index + 1) % 2
 
 
+  def get_player(self) -> str:
+    return self.SYMBOLS[self.symbol_index].strip()
+
   def has_empty_cells(self) -> bool:
     return self.empty_cells > 0
 
